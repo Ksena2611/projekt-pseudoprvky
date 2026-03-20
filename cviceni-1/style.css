@@ -1,15 +1,29 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
-
-body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  padding: 50px;
+html { 
+  box-sizing: border-box; /* Встановлює модель box-sizing для всього документа: padding і border входять у ширину/висоту */
 }
 
-/*
-- použij emotikon melounu 🍉 místo odrážky v seznamu
-- neřeš odsazení textu a zarovnání textu/ikonek,
-  jen si vyzkoušej, jak přidat ikonku před každou položku seznamu
-*/
+*, ::before, ::after { 
+  box-sizing: inherit; /* Успадковує box-sizing від html для всіх елементів і псевдоелементів */
+}
+
+body {
+  font-family: "Inter", sans-serif; /* Основний шрифт сторінки */
+  font-optical-sizing: auto; /* Автоматично підлаштовує вигляд шрифту (для variable fonts) */
+  font-size: 1.125rem; /* Розмір тексту (≈18px, якщо 1rem = 16px) */
+  padding: 50px; /* Відступи всередині body з усіх сторін */
+}
+
+
+.list {
+  list-style: none; /* Прибирає стандартні маркери списку (крапки) */
+  padding: 0; /* Забирає стандартний відступ зліва у списку */
+}
+
+.list li {
+  margin-top: 10px; /* Відступ зверху між елементами списку */
+}
+
+.list li::before {
+  content: "🍉"; /* Додає емодзі перед кожним пунктом списку */
+  margin-right: 5px; /* Відступ між емодзі і текстом */
+}

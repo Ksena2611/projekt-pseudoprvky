@@ -1,13 +1,87 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html { 
+  box-sizing: border-box; /* Включає padding і border у загальні розміри елемента */
+}
+
+*, ::before, ::after { 
+  box-sizing: inherit; /* Усі елементи і псевдоелементи успадковують це правило */
+}
 
 body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  font-family: "Inter", sans-serif; /* Основний шрифт */
+  font-optical-sizing: auto; /* Автоматична оптимізація вигляду шрифту */
+  font-size: 1.125rem; /* Розмір тексту (~18px) */
+  line-height: 1.5; /* Висота рядка */
 }
 
 h1, h2 {
-  text-align: center;
+  text-align: center; /* Центрує заголовки */
+}
+
+/* -------- MODERN СТИЛЬ -------- */
+
+.modern {
+  margin-inline: auto; /* Центрує блок по горизонталі */
+  max-width: 600px; /* Максимальна ширина */
+  padding: 30px; /* Внутрішні відступи */
+  position: relative; /* Основа для абсолютного позиціонування псевдоелементів */
+}
+
+.modern::before,
+.modern::after {
+  content: ""; /* Створює порожні псевдоелементи */
+  position: absolute; /* Абсолютне позиціонування */
+  width: 50px; /* Ширина */
+  height: 50px; /* Висота */
+}
+
+.modern::before {
+  bottom: 0; /* Прив’язка до низу */
+  left: 0; /* Прив’язка до лівого краю */
+  border-left: 10px solid dodgerblue; /* Ліва лінія */
+  border-bottom: 10px solid dodgerblue; /* Нижня лінія */
+  /* Разом утворює "кут" знизу зліва */
+}
+
+.modern::after {
+  top: 0; /* Прив’язка до верху */
+  right: 0; /* Прив’язка до правого краю */
+  border-right: 10px solid dodgerblue; /* Права лінія */
+  border-top: 10px solid dodgerblue; /* Верхня лінія */
+  /* Разом утворює "кут" зверху справа */
+}
+
+
+/* -------- CLASSIC СТИЛЬ -------- */
+
+.classic {
+  margin-inline: auto; /* Центрує блок */
+  max-width: 600px; /* Максимальна ширина */
+  padding: 20px 60px; /* Внутрішні відступи (більше зліва і справа) */
+  position: relative; /* Основа для псевдоелементів */
+}
+
+.classic::before,
+.classic::after {
+  font-family: Georgia; /* Класичний шрифт для лапок */
+  font-size: 48px; /* Великий розмір лапок */
+  line-height: 1; /* Без зайвих відступів */
+  display: block; /* Блочний елемент */
+  width: 48px; /* Ширина */
+  height: 48px; /* Висота */
+  text-align: center; /* Центрує символ всередині */
+  border-radius: 50%; /* Робить круг */
+  background: #e5e5e5; /* Світлий фон */
+  position: absolute; /* Абсолютне позиціонування */
+}
+
+.classic::before {
+  content: open-quote; /* Вставляє відкриваючу лапку (“) */
+  left: 0; /* Лівий край */
+  top: 0; /* Верх */
+}
+
+.classic::after {
+  content: close-quote; /* Вставляє закриваючу лапку (”) */
+  right: 0; /* Правий край */
+  bottom: 0; /* Низ */
 }

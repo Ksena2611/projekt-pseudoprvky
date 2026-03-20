@@ -1,18 +1,59 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html { 
+  box-sizing: border-box; /* Включає padding і border у загальний розмір елемента */
+}
+
+*, ::before, ::after { 
+  box-sizing: inherit; /* Усі елементи і псевдоелементи успадковують box-sizing */
+}
 
 body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  padding: 50px;
+  font-family: "Inter", sans-serif; /* Основний шрифт сторінки */
+  font-optical-sizing: auto; /* Автоматична оптимізація вигляду шрифту */
+  font-size: 1.125rem; /* Розмір тексту (~18px) */
+  padding: 50px; /* Внутрішні відступи по всій сторінці */
 }
 
 :root {
-  --czechitas-blue: #2d2e83aa;
-  --czechitas-pink: #e6007eaa;
+  --czechitas-blue: #2d2e83aa; /* Змінна з напівпрозорим синім кольором */
+  --czechitas-pink: #e6007eaa; /* Змінна з напівпрозорим рожевим кольором */
 }
 
 h1 {
-  text-align: center;
+  text-align: center; /* Вирівнює заголовок по центру */
+}
+
+.foto img {
+  width: 100%; /* Картинка займає всю ширину контейнера */
+  border-radius: 50%; /* Робить картинку круглою */
+  border: 8px solid #e5e5e5; /* Світла рамка навколо фото */
+}
+
+.foto {
+  margin: 50px auto; /* Відступ зверху/знизу 50px, по центру по горизонталі */
+  max-width: 300px; /* Максимальна ширина блоку */
+  position: relative; /* Дозволяє позиціонувати псевдоелементи відносно цього блоку */
+}
+
+.foto::before,
+.foto::after {
+  content: ""; /* Створює порожні псевдоелементи */
+  display: block; /* Робить їх блочними */
+  border-radius: 50%; /* Робить їх круглими */
+  position: absolute; /* Абсолютне позиціонування всередині .foto */
+}
+
+.foto::before {
+  width: 50px; /* Ширина круга */
+  height: 50px; /* Висота круга */
+  bottom: 30px; /* Відступ від нижнього краю */
+  left: 15px; /* Відступ від лівого краю */
+  background: var(--czechitas-pink); /* Рожевий колір із змінної */
+}
+
+.foto::after {
+  width: 100px; /* Ширина круга */
+  height: 100px; /* Висота круга */
+  top: 0px; /* Прикріплює до верху */
+  right: 0px; /* Прикріплює до правого краю */
+  background: var(--czechitas-blue); /* Синій колір із змінної */
 }

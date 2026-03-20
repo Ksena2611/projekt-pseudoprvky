@@ -1,16 +1,60 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
-
-body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  padding: 50px;
+html { 
+  box-sizing: border-box; /* Включає padding і border у ширину/висоту елемента */
 }
 
-/*
-Nákupní seznam:
-- nastyluj seznam tak, aby vypadal jako to-do list
-- před každou položkou bude prázdný čtvereček
-- položky, které mají class="done", budou mít ve čtverečku textové emoji ✔️
-*/
+*, ::before, ::after { 
+  box-sizing: inherit; /* Усі елементи та псевдоелементи успадковують це значення */
+}
+
+body {
+  font-family: "Inter", sans-serif; /* Основний шрифт */
+  font-optical-sizing: auto; /* Оптимізація вигляду шрифту */
+  font-size: 1.125rem; /* Розмір тексту (~18px) */
+  padding: 50px; /* Внутрішні відступи сторінки */
+}
+
+
+
+.todo {
+  list-style: none; /* Прибирає стандартні маркери списку */
+  padding: 0; /* Забирає відступ зліва */
+  max-width: 300px; /* Обмежує ширину списку */
+}
+
+.todo li {
+  border-bottom: 1px solid silver; /* Лінія під кожним пунктом */
+  padding-block: 10px; /* Відступ зверху і знизу */
+  display: flex; /* Робить елементи в рядок */
+  align-items: center; /* Вирівнює по вертикалі */
+  gap: 10px; /* Відстань між квадратиком і текстом */
+}
+
+.todo li::before {
+  content: ""; /* Створює порожній квадратик */
+  display: block; /* Робить його блочним */
+  width: 30px; /* Ширина квадрата */
+  height: 30px; /* Висота квадрата */
+  text-align: center; /* Центрування (для галочки пізніше) */
+  border: 1px solid silver; /* Рамка квадрата */
+  border-radius: 4px; /* Легке заокруглення кутів */
+}
+
+.todo .done {
+  color: silver; /* Робить текст сірим (виглядає як виконане) */
+}
+
+.todo .done::before {
+  content: "✔️"; /* Замінює порожній квадратик на галочку */
+}
+
+
+
+
+
+
+
+
+
+
+
+

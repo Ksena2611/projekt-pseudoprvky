@@ -1,17 +1,29 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html { 
+  box-sizing: border-box; /* Включає padding і border у ширину/висоту елемента */
+}
+
+*, ::before, ::after { 
+  box-sizing: inherit; /* Усі елементи та псевдоелементи успадковують це значення */
+}
 
 body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  padding: 50px;
+  font-family: "Inter", sans-serif; /* Основний шрифт сторінки */
+  font-optical-sizing: auto; /* Оптимізація вигляду шрифту */
+  font-size: 1.125rem; /* Розмір тексту (~18px) */
+  line-height: 1.5; /* Висота рядка для кращої читабельності */
+  padding: 50px; /* Внутрішні відступи сторінки */
 }
 
 
-/*
-Nastyluj odkazy, které se otevírají do nového okna tak, aby za odkazem byla malá ikonka.
-Odkazy do nového okna poznáš tak, že mají u sebe atribut target="_blank".
-*/
 
+a[target=_blank]::after {
+  content: ""; /* Створює псевдоелемент після посилання */
+  display: inline-block; /* Робить його в один рядок з текстом */
+  width: 0.7rem; /* Ширина іконки */
+  height: 0.7rem; /* Висота іконки */
+  margin-left: 4px; /* Відступ між текстом і іконкою */
+  vertical-align: top; /* Вирівнює іконку відносно тексту (по верхній лінії) */
+  background-image: url(images/icon.svg); /* Підставляє SVG-іконку як фон */
+  background-size: 100%; /* Іконка займає весь розмір блоку */
+  opacity: 0.7; /* Робить іконку трохи прозорою */
+}

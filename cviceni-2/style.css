@@ -1,18 +1,33 @@
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html { 
+  box-sizing: border-box; /* Встановлює модель розрахунку розмірів:
+                             ширина/висота включає padding і border */
+}
+
+*, ::before, ::after { 
+  box-sizing: inherit; /* Усі елементи та псевдоелементи беруть це значення від html */
+}
 
 body {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  background: #22352e;
-  color: #ddd;
-  max-width: 700px;
-  padding: 50px;
+  font-family: "Inter", sans-serif; /* Основний шрифт сторінки */
+  font-optical-sizing: auto; /* Автоматична оптимізація вигляду шрифту (для variable fonts) */
+  font-size: 1.125rem; /* Розмір тексту (~18px) */
+  line-height: 1.5; /* Висота рядка — робить текст читабельнішим */
+  background: #22352e; /* Темний зелено-синій фон сторінки */
+  color: #ddd; /* Світло-сірий колір тексту */
+  max-width: 700px; /* Максимальна ширина контенту */
+  padding: 50px; /* Внутрішні відступи з усіх сторін */
 }
 
 h1, h2 {
-  line-height: 1.2;
+  line-height: 1.2; /* Менша висота рядка для заголовків — виглядають компактніше */
 }
 
+h2::after {
+  content: ""; /* Створює псевдоелемент після h2 (без тексту) */
+  display: block; /* Робить його блочним елементом (з нового рядка) */
+  width: 100px; /* Ширина лінії */
+  height: 5px; /* Висота лінії */
+  margin-top: 10px; /* Відступ зверху від заголовка */
+  margin-left: -20px; /* Зсуває лінію вліво (вихід за межі тексту) */
+  background: lime; /* Яскраво-зелений колір лінії */
+}
